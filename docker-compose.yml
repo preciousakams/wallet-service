@@ -1,0 +1,15 @@
+version: '2'
+services:
+  wallet-service:
+    container_name: wallet-service
+    build: .
+    ports:
+      - "8200:80"
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - servers_external_network
+    restart: always
+networks:
+  servers_external_network:
+    external: true
